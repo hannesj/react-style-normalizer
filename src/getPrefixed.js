@@ -4,8 +4,11 @@ var toUpperFirst = require('./toUpperFirst')
 var getPrefix    = require('./getPrefix')
 
 var properties = {
+  'alignItems': 1,
+  'justifyContent': 1,
   'flex': 1,
   'flexFlow': 1,
+
   'userSelect': 1,
   'transform': 1,
   'transition': 1,

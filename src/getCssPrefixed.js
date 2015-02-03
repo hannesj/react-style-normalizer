@@ -15,15 +15,24 @@ module.exports = function(key, value){
         return MEMORY[k]
     }
 
-    var prefix = getPrefix('appearance')
-    var prefixed = getPrefixed(key)
+    el.style[key] = value
 
-    var prefixedValue = '-' + prefix.toLowerCase() + '-' + value
+    var prefix
+    var prefixed
+    var prefixedValue
 
-    el.style[prefixed] = prefixedValue
+    if (el.style[key] !== value){
 
-    if (el.style[prefixed] === prefixedValue){
-        value = prefixedValue
+        prefix   = getPrefix('appearance')
+        prefixed = getPrefixed(key)
+
+        prefixedValue = '-' + prefix.toLowerCase() + '-' + value
+
+        el.style[prefixed] = prefixedValue
+
+        if (el.style[prefixed] === prefixedValue){
+            value = prefixedValue
+        }
     }
 
     MEMORY[k] = value
