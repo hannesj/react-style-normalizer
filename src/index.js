@@ -1,7 +1,7 @@
 'use strict'
 
-var hasOwn         = require('./hasOwn')
-var getPrefixed    = require('./getPrefixed')
+var hasOwn      = require('./hasOwn')
+var getPrefixed = require('./getPrefixed')
 
 var map      = require('./map')
 var plugable = require('./plugable')
