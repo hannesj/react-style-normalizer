@@ -5,6 +5,7 @@ var getPrefix    = require('./getPrefix')
 var el           = require('./el')
 
 var MEMORY = {}
+var STYLE = el.style
 
 module.exports = function(key, value){
 
@@ -14,23 +15,17 @@ module.exports = function(key, value){
         return MEMORY[k]
     }
 
-    el.style[key] = ''
-    el.style[key] = value
-
     var prefix
     var prefixed
 
-    if (el.style[key] === ''){//we have to prefix
+    if (!(key in STYLE)){//we have to prefix
 
         prefix = getPrefix('appearance')
 
         if (prefix){
             prefixed = prefix + toUpperFirst(key)
 
-            el.style[prefixed] = ''
-            el.style[prefixed] = value
-
-            if (el.style[prefixed] !== ''){
+            if (prefixed in STYLE){
                 key = prefixed
             }
         }

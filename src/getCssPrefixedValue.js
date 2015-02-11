@@ -5,6 +5,7 @@ var forcePrefixed = require('./forcePrefixed')
 var el            = require('./el')
 
 var MEMORY = {}
+var STYLE = el.style
 
 module.exports = function(key, value){
 
@@ -14,14 +15,11 @@ module.exports = function(key, value){
         return MEMORY[k]
     }
 
-    el.style[key] = ''
-    el.style[key] = value
-
     var prefix
     var prefixed
     var prefixedValue
 
-    if (el.style[key] === ''){
+    if (!(key in STYLE)){
 
         prefix = getPrefix('appearance')
 
@@ -30,11 +28,13 @@ module.exports = function(key, value){
 
             prefixedValue = '-' + prefix.toLowerCase() + '-' + value
 
-            el.style[prefixed] = ''
-            el.style[prefixed] = prefixedValue
+            if (prefixed in STYLE){
+                el.style[prefixed] = ''
+                el.style[prefixed] = prefixedValue
 
-            if (el.style[prefixed] !== ''){
-                value = prefixedValue
+                if (el.style[prefixed] !== ''){
+                    value = prefixedValue
+                }
             }
         }
     }
