@@ -20,7 +20,7 @@ module.exports = function(key, value){
     var prefix
     var prefixed
 
-    if (el.style[key] !== ''){
+    if (el.style[key] === ''){//we have to prefix
 
         prefix = getPrefix('appearance')
 

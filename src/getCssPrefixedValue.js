@@ -21,7 +21,7 @@ module.exports = function(key, value){
     var prefixed
     var prefixedValue
 
-    if (el.style[key] !== ''){
+    if (el.style[key] === ''){
 
         prefix = getPrefix('appearance')
 
