@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var hasOwn      = require('./hasOwn')
 var getPrefixed = require('./getPrefixed')
@@ -33,7 +33,7 @@ function normalize(key, value){
 
 	return map(function(result){
 		return {
-			key  : getPrefixed(result.key),
+			key  : getPrefixed(result.key, result.value),
 			value: result.value
 		}
 	}, result)

@@ -1,6 +1,6 @@
 'use strict';
 
-var getCssPrefixed = require('./getCssPrefixed')
+var getCssPrefixedValue = require('./getCssPrefixedValue')
 
 module.exports = function(target){
 	target.plugins = target.plugins || [
@@ -13,8 +13,8 @@ module.exports = function(target){
 			return function(key, value){
 				if (key === 'display' && value in values){
 					return {
-						key: key,
-						value: getCssPrefixed(key, value)
+						key  : key,
+						value: getCssPrefixedValue(key, value)
 					}
 				}
 			}

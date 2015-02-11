@@ -2,7 +2,6 @@
 
 var toUpperFirst = require('./toUpperFirst')
 var getPrefix    = require('./getPrefix')
-var getPrefixed  = require('./getPrefixed')
 var el           = require('./el')
 
 var MEMORY = {}
@@ -19,23 +18,23 @@ module.exports = function(key, value){
 
     var prefix
     var prefixed
-    var prefixedValue
 
     if (el.style[key] !== value){
 
-        prefix   = getPrefix('appearance')
-        prefixed = getPrefixed(key)
+        prefix = getPrefix('appearance')
 
-        prefixedValue = '-' + prefix.toLowerCase() + '-' + value
+        if (prefix){
+            prefixed = prefix + toUpperFirst(key)
 
-        el.style[prefixed] = prefixedValue
+            el.style[prefixed] = value
 
-        if (el.style[prefixed] === prefixedValue){
-            value = prefixedValue
+            if (el.style[prefixed] === value){
+                key = prefixed
+            }
         }
     }
 
-    MEMORY[k] = value
+    MEMORY[k] = key
 
-    return value
+    return key
 }
