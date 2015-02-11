@@ -14,13 +14,14 @@ module.exports = function(key, value){
         return MEMORY[k]
     }
 
+    el.style[key] = ''
     el.style[key] = value
 
     var prefix
     var prefixed
     var prefixedValue
 
-    if (el.style[key] !== value){
+    if (el.style[key] !== ''){
 
         prefix = getPrefix('appearance')
 
@@ -29,9 +30,10 @@ module.exports = function(key, value){
 
             prefixedValue = '-' + prefix.toLowerCase() + '-' + value
 
+            el.style[prefixed] = ''
             el.style[prefixed] = prefixedValue
 
-            if (el.style[prefixed] === prefixedValue){
+            if (el.style[prefixed] !== ''){
                 value = prefixedValue
             }
         }

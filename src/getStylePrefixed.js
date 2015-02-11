@@ -8,27 +8,29 @@ var MEMORY = {}
 
 module.exports = function(key, value){
 
-    var k = key + ': ' + value
+    var k = key// + ': ' + value
 
     if (MEMORY[k]){
         return MEMORY[k]
     }
 
+    el.style[key] = ''
     el.style[key] = value
 
     var prefix
     var prefixed
 
-    if (el.style[key] !== value){
+    if (el.style[key] !== ''){
 
         prefix = getPrefix('appearance')
 
         if (prefix){
             prefixed = prefix + toUpperFirst(key)
 
+            el.style[prefixed] = ''
             el.style[prefixed] = value
 
-            if (el.style[prefixed] === value){
+            if (el.style[prefixed] !== ''){
                 key = prefixed
             }
         }
