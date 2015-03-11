@@ -2,8 +2,11 @@
 
 var el
 
-if(!!global.document){
-  	el = global.document.createElement('div')
-}
+module.exports = function(){
 
-module.exports = el
+	if(!el && !!global.document){
+	  	el = global.document.createElement('div')
+	}
+
+	return el
+}

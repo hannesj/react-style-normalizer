@@ -5,9 +5,13 @@ var getPrefix    = require('./getPrefix')
 var el           = require('./el')
 
 var MEMORY = {}
-var STYLE = el.style
+var STYLE
+var ELEMENT
 
 module.exports = function(key, value){
+
+    ELEMENT = ELEMENT || el()
+    STYLE   = STYLE   || ELEMENT.style
 
     var k = key// + ': ' + value
 

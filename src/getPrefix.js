@@ -5,6 +5,7 @@ var prefixes     = ["ms", "Moz", "Webkit", "O"]
 
 var el = require('./el')
 
+var ELEMENT
 var PREFIX
 
 module.exports = function(key){
@@ -12,6 +13,8 @@ module.exports = function(key){
 	if (PREFIX){
 		return PREFIX
 	}
+
+	ELEMENT = ELEMENT || el()
 
 	var i = 0
 	var len = prefixes.length
@@ -22,7 +25,7 @@ module.exports = function(key){
 		prefix = prefixes[i]
 		tmp = prefix + toUpperFirst(key)
 
-		if (typeof el.style[tmp] != 'undefined'){
+		if (typeof ELEMENT.style[tmp] != 'undefined'){
 			return PREFIX = prefix
 		}
 	}
