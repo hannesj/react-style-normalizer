@@ -10,7 +10,7 @@ var PREFIX
 
 module.exports = function(key){
 
-	if (PREFIX){
+	if (PREFIX !== undefined){
 		return PREFIX
 	}
 
@@ -29,4 +29,6 @@ module.exports = function(key){
 			return PREFIX = prefix
 		}
 	}
+
+	return PREFIX = ''
 }
