@@ -43,8 +43,6 @@ function normalize(key, value){
 
 var RESULT = function(style){
 
-	return style
-
 	var k
 	var item
 	var result = {}
