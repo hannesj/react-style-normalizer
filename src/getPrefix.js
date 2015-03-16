@@ -30,5 +30,5 @@ module.exports = function(key){
 		}
 	}
 
-	return PREFIX = ''
+	return PREFIX
 }
