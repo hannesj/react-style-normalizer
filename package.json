@@ -1,6 +1,6 @@
 {
   "name": "react-style-normalizer",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "React Style Normalizer",
   "main": "src/index.js",
   "scripts": {
