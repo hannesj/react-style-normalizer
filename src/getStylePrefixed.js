@@ -32,7 +32,7 @@ module.exports = function(key, value){
             prefix = getPrefix('appearance')
 
             if (prefix){
-                prefix = PREFIX =zprefix.toLowerCase()
+                prefix = PREFIX = prefix.toLowerCase()
             }
         }
 
