@@ -40,7 +40,7 @@ module.exports = function(key, value){
             prefixed = prefix + toUpperFirst(key)
 
             if (prefixed in STYLE){
-                key = prefixed
+                key = '-' + prefixed
             }
         }
     }
