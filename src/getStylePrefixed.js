@@ -26,21 +26,21 @@ module.exports = function(key, value){
 
     if (!(key in STYLE)){//we have to prefix
 
-        if (PREFIX){
-            prefix = PREFIX
-        } else {
+        // if (PREFIX){
+        //     prefix = PREFIX
+        // } else {
             prefix = getPrefix('appearance')
 
-            if (prefix){
-                prefix = PREFIX = prefix.toLowerCase()
-            }
-        }
+        //     if (prefix){
+        //         prefix = PREFIX = prefix.toLowerCase()
+        //     }
+        // }
 
         if (prefix){
             prefixed = prefix + toUpperFirst(key)
 
             if (prefixed in STYLE){
-                key = '-' + prefixed
+                key = prefixed
             }
         }
     }
