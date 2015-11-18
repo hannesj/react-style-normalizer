@@ -12,6 +12,7 @@ module.exports = {
   'flexWrap': 1,
   'alignContent': 1,
   'alignSelf': 1,
+  'order': 1,
 
   'userSelect': 1,
   'transform': 1,
